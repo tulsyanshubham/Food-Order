@@ -53,7 +53,7 @@ export default function Header() {
                                         />
                                     </figure>
                                     <span>
-                                        {user & user.name}
+                                        {user && user.name}
                                     </span>
                                 </Link>
                                 <div className="dropdown-menu" aria-labelledby="dropDownMenuButton">
