@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import CountRestaurant from './CountRestaurant'
 import Restaurant from './Restaurant'
-import { getRestaurants, sortByRating, sortByReviews, toggleVegOnly } from '../../actions/restaurantAction'
+import { getRestaurants, sortByRating, sortByReviews, toggleVegOnly } from '../../actions/restaurantActions'
 import { useDispatch, useSelector } from 'react-redux'
 import Loader from './Loader'
 import Message from './Message'

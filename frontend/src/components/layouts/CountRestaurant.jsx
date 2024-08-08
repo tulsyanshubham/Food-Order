@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { getRestaurants } from "../../actions/restaurantAction";
+import { getRestaurants } from "../../actions/restaurantActions";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function CountRestaurant() {
