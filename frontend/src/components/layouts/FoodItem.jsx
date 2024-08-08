@@ -1,7 +1,9 @@
 import React from 'react'
+import { useAlert } from 'react-alert'
 import { LiaRupeeSignSolid } from 'react-icons/lia'
 
 export default function FoodItem({fooditem}) {
+    const alert = useAlert();
     return (
         <div className="col-sm-12 col-md-6 col-lg-3 my-3">
             <div className="card p-3 rounded">
@@ -32,9 +34,9 @@ export default function FoodItem({fooditem}) {
                         Status: {" "}
                         <span
                             id="stock_status"
-                            className={fooditem.stock > 0 ? "greenColor" : "redColor"}
+                            className={fooditem.stock ? "greenColor" : "redColor"}
                         >
-                            {fooditem.stock > 0 ? "In Stock" : "Out of Stock"}
+                            {fooditem.stock ? "In Stock" : "Out of Stock"}
                         </span>
                     </p>
                 </div>
