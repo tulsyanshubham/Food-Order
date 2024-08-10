@@ -1,5 +1,6 @@
 import axios from "axios";
 import { CLEAR_ERRORS, LOAD_USER_FAIL, LOAD_USER_REQUEST, LOAD_USER_SUCCESS, LOGIN_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT_FAIL, LOGOUT_SUCCESS, NEW_PASSWORD_FAIL, NEW_PASSWORD_REQUEST, NEW_PASSWORD_SUCCESS, REGISTER_USER_FAIL, REGISTER_USER_REQUEST, REGISTER_USER_SUCCESS, UPDATE_PROFILE_FAIL, UPDATE_PROFILE_REQUEST, UPDATE_PROFILE_SUCCESS } from "../constants/userConstants"
+import { CLEAR_CART } from "../constants/cartConstants";
 
 //Login
 export const login = (email, password) => async (dispatch) => {
@@ -99,6 +100,9 @@ export const logout = () => async (dispatch) => {
         await axios.get('/api/v1/users/logout');
         dispatch({
             type: LOGOUT_SUCCESS,
+        });
+        dispatch({
+            type: CLEAR_CART,
         });
     } catch (error) {
         dispatch({
