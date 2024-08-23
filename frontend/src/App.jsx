@@ -5,6 +5,9 @@ import Home from './components/layouts/Home';
 import Footer from './components/layouts/Footer';
 import Menu from './components/layouts/Menu';
 import Cart from './components/cart/Cart';
+import OrderSuccess from './components/cart/OrderSuccess';
+import ListOrders from './components/order/ListOrders';
+import OrderDetails from './components/order/OrderDetails';
 import Login from './components/users/Login';
 import Register from './components/users/Register';
 import Profile from './components/users/Profile';
@@ -19,7 +22,7 @@ import { fetchCartItems } from './actions/cartActions';
 
 export default function App() {
   //Dispatched exactly once, when the component is first rendered, and check if the user is authenticated or not
-  console.log(store)
+  // console.table(store) //debug
   useEffect(() => {
     store.dispatch(loadUser());
   },[]);
@@ -46,6 +49,10 @@ export default function App() {
             <Route path="/users/me/update" element={<UpdateProfile />} />
             <Route path="/users/forgotPassword" element={<ForgotPassword />} />
             <Route path="/users/resetPassword/:token" element={<NewPassword />} />
+            <Route path="/success" element={<OrderSuccess />} />
+            <Route path="/eats/orders/me/myOrders" element={<ListOrders />} />
+            <Route path="/eats/orders/:id" element={<OrderDetails />} />
+            <Route path="*" element={<h1>This page does not exist.</h1>} />
           </Routes>
         </div>
         <Footer />

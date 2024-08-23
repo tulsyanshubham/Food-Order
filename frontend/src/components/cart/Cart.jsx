@@ -3,6 +3,7 @@ import { useAlert } from "react-alert";
 import { LiaRupeeSignSolid } from "react-icons/lia";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCartItems, removeItemFromCart, updateCartQuantity } from "../../actions/cartActions";
+import { payment } from "../../actions/orderActions";
 
 // let fakeCartItems = [
 //   {
@@ -45,7 +46,7 @@ const Cart = () => {
   const dispatch = useDispatch();
 
   const {cartItems, restaurant } = useSelector(state => state.cart);
-  console.table(cartItems);
+  // console.table(cartItems);
 
   useEffect(() => {
     dispatch(fetchCartItems());
@@ -73,6 +74,10 @@ const Cart = () => {
     } else {
       alert.error("Minimum quantity reached");
     }
+  }
+
+  const checkoutHandler = () => {
+    dispatch(payment(cartItems, restaurant));
   }
 
   return (
@@ -164,7 +169,7 @@ const Cart = () => {
                   </span>
                 </p>
                 <hr />
-                <button id="checkout_btn" className="btn btn-primary btn-block">
+                <button id="checkout_btn" onClick={checkoutHandler} className="btn btn-primary btn-block">
                   Check Out
                 </button>
               </div>

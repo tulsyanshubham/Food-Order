@@ -6,7 +6,7 @@ export const getMenus = (id) => async (dispatch) => {
         dispatch({ type: GET_MENU_REQUEST });
         let link = `/api/v1/eats/stores/${id}/menus`;
         const {data} = await axios.get(link);
-        console.table(data.data[0].menu); // DEBUG
+        // console.table(data.data[0].menu); // DEBUG
         dispatch({
             type: GET_MENU_SUCCESS,
             payload: data.data[0].menu,
